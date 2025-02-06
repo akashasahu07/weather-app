@@ -2,8 +2,13 @@
   <div class="weather">
     <h2>{{ heading | titlecase }}</h2>
     <input type="text" placeholder="Search Place..." [(ngModel)] ="searchCity" required autofocus>
-    <button (click)="showCity()">Check Weather</button>
+    <button (click)="showCity()" >Check Weather</button>
 
-    <h3>{{ displayCity }}</h3>
+    <h3 *ngIf="displayCity">Showing Result For: {{ displayCity }}</h3>
+    <h4>{{ name }}</h4>
+    <img src="{{icon}}" alt="">
+    <h4>{{ region }}</h4>
+    <h4>{{ temp_c }}</h4>
+    <h4>{{ w_speed }}</h4>
   </div>
 </main>
