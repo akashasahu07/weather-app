@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { WeatherService } from './services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -20,19 +21,9 @@ export class AppComponent {
   region: string = ""
   icon: string = ""
 
+  constructor(private weather: WeatherService) { }
 
-  showCity() {
-    this.displayCity = this.searchCity
-
-    fetch(`http://api.weatherapi.com/v1/current.json?key=cd4a9b6fe7e641859c474632250602&q=${this.displayCity}`)
-      .then((response) => response.json())
-
-      .then((data) => {
-        this.name = "Name: " + data.location.name
-        this.icon = data.current.condition.icon
-        this.region = "Region: " + data.location.region
-        this.temp_c = "Temperature: " + data.current.temp_c + " C"
-        this.w_speed = "Wind Speed: " + data.current.wind_kph + " kph"
-      })
+  myFun() {
+    this.weather.checkWeather(this.searchCity)
   }
 }
