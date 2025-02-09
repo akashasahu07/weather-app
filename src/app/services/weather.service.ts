@@ -5,17 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class WeatherService {
 
-  temp_c: string = ""
+  private apikey = 'cd4a9b6fe7e641859c474632250602';
+  private apiurl = 'https://api.weatherapi.com/v1/current.json/forecast.json';
   constructor() { }
 
-  checkWeather(searchCity: string) {
+  fetchWeather(searchCity: string): Promise<any> {
+    return fetch(`${this.apiurl}?key=${this.apikey}&q=${searchCity}&days=5`)
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=cd4a9b6fe7e641859c474632250602&q=${searchCity}`)
-      .then((response) => response.json())
+    .then(response => {
+      return response.json()
+    })
 
-      .then((data) => {
-        console.log(data)
-        this.temp_c = "Temperature: " + data.current.temp_c
-      })
+    .then((data) => data)
   }
 }

@@ -1,14 +1,26 @@
-<main>
-  <div class="weather">
-    <h2>{{ heading | titlecase }}</h2>
-    <input type="text" placeholder="Search Place..." [(ngModel)]="searchCity" required autofocus>
-    <button (click)="myFun()">Check Weather</button>
-
-    <h3 *ngIf="displayCity">Showing Result For: {{ displayCity }}</h3>
-    <h4>{{ name }}</h4>
-    <img src="{{icon}}" alt="icon">
-    <h4>{{ region }}</h4>
-    <h4>{{ temp_c }}</h4>
-    <h4>{{ w_speed }}</h4>
-  </div>
+<main [style.backgroundImage]="backgroundImage" [style.color]="textColor">
+    <div class="weather">
+      <h2>{{ heading | titlecase }}</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for Location." [(ngModel)]="searchCity" required autofocus>
+        <img src="search.gif" (click)="checkWeather()">
+      </div>
+  
+      <div class="city-details">
+        <h2>{{ city_name }}, {{ region }}, {{ country }}</h2>
+        <h2>{{ time }}</h2>
+      </div>
+  
+      <div class="temp-details">
+        <img src="{{ icon }}" width="100">
+        <h2>{{ temp_c }} &deg;C</h2>
+        <h2>{{ sky }}</h2>
+        <h2>{{ feelslike_c }}&deg;</h2>
+      </div>
+  
+      <div class="air-details">
+        <h2>{{ wind }}</h2>
+        <h2>{{ pressure }}</h2>
+      </div>
+    </div>
 </main>

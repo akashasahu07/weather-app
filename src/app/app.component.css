@@ -1,40 +1,53 @@
 main {
-    background-color: #c8fcfc;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* Add a blur effect using a pseudo-element */
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    /* Inherits background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(15px);
+    /* Adjust blur intensity */
+    z-index: 0;
+    /* Places it behind the content */
 }
 
 .weather {
-    height: fit-content;
-    width: fit-content;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.search-bar {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
 }
 
-input {
-    padding: 10px;
-    border-radius: 10px;
+.search-bar input {
+    padding: 10px 0 10px 20px;
+    border-radius: 5px;
     border: none;
-    box-shadow: 1px 1px 10px #ff5ae6;
+    outline: none;
 }
 
-button {
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #adfca9;
-    font-weight: bold;
-    border: none;
-    box-shadow: 1px 1px 10px;
-}
-
-button:hover {
-    background-color: #7bff86;
+.search-bar img {
+    mix-blend-mode: screen;
+    position: relative;
+    z-index: 5;
 }
