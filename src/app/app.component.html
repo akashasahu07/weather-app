@@ -1,26 +1,34 @@
 <main [style.backgroundImage]="backgroundImage" [style.color]="textColor">
-    <div class="weather">
+  <div class="weather">
+    <div class="heading">
       <h2>{{ heading | titlecase }}</h2>
       <div class="search-bar">
         <input type="text" placeholder="Search for Location." [(ngModel)]="searchCity" required autofocus>
-        <img src="search.gif" (click)="checkWeather()">
-      </div>
-  
-      <div class="city-details">
-        <h2>{{ city_name }}, {{ region }}, {{ country }}</h2>
-        <h2>{{ time }}</h2>
-      </div>
-  
-      <div class="temp-details">
-        <img src="{{ icon }}" width="100">
-        <h2>{{ temp_c }} &deg;C</h2>
-        <h2>{{ sky }}</h2>
-        <h2>{{ feelslike_c }}&deg;</h2>
-      </div>
-  
-      <div class="air-details">
-        <h2>{{ wind }}</h2>
-        <h2>{{ pressure }}</h2>
+        <img src="search.png" (click)="checkWeather()">
       </div>
     </div>
+
+    <div class="weather-details">
+      <div class="city-details">
+        <h3>{{ city_name }}, {{ region }}, {{ country }}</h3>
+        <h3>{{ time }}</h3>
+      </div>
+
+      <div class="temp-details">
+        <div class="part1">
+          <img src="{{ icon }}" width="120">
+          <h2>{{ temp_c }}</h2><span>&deg;C</span>
+        </div>
+        <div class="part2">
+          <h5>{{ sky }}</h5>
+          <h5>{{ feelslike_c }} &deg;</h5>
+        </div>
+      </div>
+
+      <div class="air-details">
+        <h5>{{ wind }}</h5>
+        <h5>{{ pressure }}</h5>
+      </div>
+    </div>
+  </div>
 </main>
