@@ -16,8 +16,8 @@
 
       <div class="temp-details">
         <div class="part1">
-          <img src="{{ icon }}" width="120">
-          <h2>{{ temp_c }}</h2><span>&deg;C</span>
+          <img src="{{ icon }}">
+          <h2>{{ temp_c }} </h2><span>&deg;C</span>
         </div>
         <div class="part2">
           <h5>{{ sky }}</h5>
@@ -26,8 +26,10 @@
       </div>
 
       <div class="air-details">
-        <h5>{{ wind }}</h5>
-        <h5>{{ pressure }}</h5>
+        <h5><span>Wind</span> <span>{{ wind }}</span></h5>
+        <h5><span>Pressure</span> <span>{{ pressure }}</span></h5>
+        <h5><span>Humidity</span> <span>{{ humidity }}</span></h5>
+        <h5><span>Dewpoint</span> <span>{{ dewpoint_c }} &deg;C</span></h5>
       </div>
     </div>
   </div>

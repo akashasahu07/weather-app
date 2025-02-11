@@ -25,8 +25,9 @@ export class AppComponent {
   sky: string = ""
   feelslike_c: string = ""
   wind: string = ""
-  humidity: string = ""
   pressure: string = ""
+  humidity: string = ""
+  dewpoint_c:string = ""
 
   defaultCity: string = "Berhampur"; // 🔹 Set a default city
 
@@ -55,8 +56,10 @@ export class AppComponent {
         this.temp_c = data.current.temp_c
         this.sky = data.current.condition.text
         this.feelslike_c = "Feels like " + data.current.feelslike_c
-        this.wind = "Wind " + data.current.wind_kph + " km/h"
-        this.pressure = "Pressure " + data.current.pressure_mb + " mb"
+        this.wind = data.current.wind_kph + " km/h"
+        this.pressure = data.current.pressure_mb + " mb"
+        this.humidity = data.current.humidity
+        this.dewpoint_c = data.current.dewpoint_c
 
         this.updateBackground(data);
 
