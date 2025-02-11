@@ -128,6 +128,26 @@ main::before {
     text-align: center;
 }
 
+.load {
+    position: absolute;
+    z-index: 5;
+    height: 2.5px;
+    animation: load 1s ease-in-out 1s;
+    border-radius: 5px;
+}
+
+@keyframes load {
+    0% {
+        width: 70%;
+        background-color: #ff0000;
+    }
+
+    70% {
+        width: 99%;
+        background-color: #ff0000;
+    }
+}
+
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 600px) {
     .weather {

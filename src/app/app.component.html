@@ -1,3 +1,5 @@
+<div class="load"></div>
+
 <main [style.backgroundImage]="backgroundImage" [style.color]="textColor">
   <div class="weather">
     <div class="heading">
@@ -8,7 +10,7 @@
       </div>
     </div>
 
-    <div class="weather-details">
+    <div class="weather-details" *ngIf="city_name">
       <div class="city-details">
         <h3>{{ city_name }}, {{ region }}, {{ country }}</h3>
         <h3>{{ time }}</h3>
