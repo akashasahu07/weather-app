@@ -51,7 +51,7 @@ main::before {
 }
 
 .search-bar input {
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     border-radius: 5px;
     border: none;
     outline: none;
