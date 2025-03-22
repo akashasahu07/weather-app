@@ -78,7 +78,7 @@ export class AppComponent {
       this.textColor = isDay ? "#000000" : "#ffffff";
     } else if (condition.includes('cloud')) {
       this.backgroundImage = isDay ? "url('cloudy-day.jpg')" : "url('cloudy-night.jpg')";
-      this.textColor = "#fff";
+      this.textColor = isDay ? "#000" : "#fff";
     } else {
       this.backgroundImage = "url('default.jpg')";
       this.textColor = "#ffffff";
